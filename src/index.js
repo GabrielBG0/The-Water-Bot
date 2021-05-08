@@ -46,7 +46,7 @@ async function main() {
           console.log(tweet.text)
           await postResponse(tweet.id_str)
         } catch (e) {
-          console.log(e)
+          console.log('não foi possivel responder ao tweet ' + tweet.id_str)
         }
       }
     }
