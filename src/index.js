@@ -16,7 +16,7 @@ function getMentions(lastIdSeen) {
 
 function postResponse(tweetId) {
   return new Promise((resolve, reject) => {
-    twit.post('statuses/update', { status: 'isso é um teste2', in_reply_to_status_id: tweetId, auto_populate_reply_metadata: 'true' }, (err, data) => {
+    twit.post('statuses/update', { status: 'isso é um teste', in_reply_to_status_id: tweetId, auto_populate_reply_metadata: 'true' }, (err, data) => {
       if (err) {
         return reject(err)
       }
