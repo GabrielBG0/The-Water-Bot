@@ -54,7 +54,7 @@ async function main() {
         }
       }
     }
-    fs.writeFileSync('lastId.txt', newlastIdSeen)
+    fs.writeFileSync('lastId.txt', newlastIdSeen.toString())
   } catch (e) {
     console.error(e)
   }
