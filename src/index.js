@@ -1,6 +1,7 @@
 require('dotenv').config()
 const fs = require('fs')
 const twit = require('./twit')
+const PORT = process.env.PORT || 1
 
 function getMentions(lastIdSeen) {
   return new Promise((resolve, reject) => {
@@ -15,7 +16,7 @@ function getMentions(lastIdSeen) {
 
 function postResponse(tweetId) {
   return new Promise((resolve, reject) => {
-    twit.post('statuses/update', { status: 'isso é um teste', in_reply_to_status_id: tweetId, auto_populate_reply_metadata: 'true' }, (err, data) => {
+    twit.post('statuses/update', { status: 'isso é um teste2', in_reply_to_status_id: tweetId, auto_populate_reply_metadata: 'true' }, (err, data) => {
       if (err) {
         return reject(err)
       }
@@ -45,7 +46,7 @@ async function main() {
           console.log(tweet.text)
           await postResponse(tweet.id_str)
         } catch (e) {
-          console.log('não foi possivel respoder ao tweet ' + tweet.id_str)
+          console.log(e)
         }
       }
     }
@@ -58,4 +59,3 @@ async function main() {
 console.log('Starting twitter bot ...')
 
 setInterval(main, 10000)
-
