@@ -1,7 +1,11 @@
 require('dotenv').config()
 const fs = require('fs')
 const twit = require('./twit')
-const PORT = process.env.PORT || 1
+var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, { 'Content-Type': 'text/plain' })
+  res.send('it is running\n')
+}).listen(process.env.PORT || 5000)
 
 function getMentions(lastIdSeen) {
   return new Promise((resolve, reject) => {
