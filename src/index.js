@@ -54,7 +54,6 @@ async function main() {
         }
       }
     }
-    console.log(newlastIdSeen)
     if (newlastIdSeen)
       fs.writeFileSync('lastId.txt', newlastIdSeen)
   } catch (e) {
